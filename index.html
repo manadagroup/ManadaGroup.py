@@ -5,14 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manada Audiovisual | Creamos historias</title>
 
+  <meta name="description" content="Manada Audiovisual — producción audiovisual: documentales, comerciales, eventos y postproducción.">
+  <meta name="keywords" content="producción audiovisual, documentales, comerciales, eventos, postproducción, Paraguay">
+  <meta property="og:title" content="Manada Audiovisual">
+  <meta property="og:description" content="Creamos historias que conectan: documentales, comerciales, eventos y más.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/og-image.jpg">
+  <link rel="icon" href="/favicon.ico">
 
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Ajustes para botón de comprimir/expandir: solo estilos móviles -->
+  <style>
+    .section { position: relative; }
+
+    /* Por defecto no afecta layout en escritorio */
+    .collapse-btn{ display: none; }
+
+    @media (max-width: 900px) {
+      .collapse-btn{
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(0,0,0,0.6);
+        color: #fff;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 14px;
+        cursor: pointer;
+        z-index: 10;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .section-header{ display:block; }
+
+      .section-body{
+        transition: max-height 320ms ease, opacity 300ms ease;
+        overflow: hidden;
+        max-height: 20000px;
+        opacity: 1;
+      }
+
+      .section.collapsed .section-body{
+        max-height: 0 !important;
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="main-header">
     <div class="container nav-container">
       <div class="logo-wrapper">
-        <img src="Fotos para la pagina/SOLAMENTE LOGO.png" alt="Logo Manada Audiovisual" class="logo-img" />
+        <img src="Fotos%20para%20la%20pagina/SOLAMENTE%20LOGO.png" alt="Logo Manada Audiovisual" class="logo-img" loading="lazy" />
         <div class="logo">
           <span class="logo-main">Manada</span>
           <span class="logo-sub">Audiovisual</span>
@@ -80,23 +129,23 @@
     <!-- MISIÓN / VISIÓN -->
     <section id="nosotros-mision-vision" class="section section-alt mission-vision-section">
       <div class="mission-vision-carousel">
-        <img src="Otras Fotos/DSC_4101.jpg" alt="Carousel 1" class="carousel-img" />
-        <img src="Otras Fotos/DSC_4105.jpg" alt="Carousel 2" class="carousel-img" />
-        <img src="Otras Fotos/DSC_4111.jpg" alt="Carousel 3" class="carousel-img" />
-        <img src="Otras Fotos/DSC_4127.jpg" alt="Carousel 4" class="carousel-img" />
-        <img src="Otras Fotos/FICCION - SDB 1.png" alt="Carousel 5" class="carousel-img" />
-        <img src="Otras Fotos/DSC_4282.jpg" alt="Carousel 6" class="carousel-img" />
-        <img src="Otras Fotos/max4.jpg" alt="Carousel 7" class="carousel-img" />
-        <img src="Otras Fotos/Imagen de WhatsApp 2025-10-12 a las 23.56.00_cebef793.jpg" alt="Carousel 8" class="carousel-img" />
+        <img src="Otras%20Fotos/DSC_4101.jpg" alt="Carousel 1" class="carousel-img" loading="lazy" />
+        <img src="Otras%20Fotos/DSC_4105.jpg" alt="Carousel 2" class="carousel-img" loading="lazy" />
+        <img src="Otras%20Fotos/DSC_4111.jpg" alt="Carousel 3" class="carousel-img" loading="lazy" />
+        <img src="Otras%20Fotos/DSC_4127.jpg" alt="Carousel 4" class="carousel-img" loading="lazy" />
+        <img src="Otras%20Fotos/FICCION%20-%20SDB%201.png" alt="Carousel 5" class="carousel-img" loading="lazy" />
+        <img src="Otras%20Fotos/DSC_4282.jpg" alt="Carousel 6" class="carousel-img" loading="lazy" />
+        <img src="Otras%20Fotos/max4.jpg" alt="Carousel 7" class="carousel-img" loading="lazy" />
+        <img src="Otras%20Fotos/Imagen%20de%20WhatsApp%202025-10-12%20a%20las%2023.56.00_cebef793.jpg" alt="Carousel 8" class="carousel-img" loading="lazy" />
 
-        <img src="Otras Fotos/DSC_4101.jpg" alt="Carousel 1" class="carousel-img" />
-        <img src="Otras Fotos/DSC_4105.jpg" alt="Carousel 2" class="carousel-img" />
-        <img src="Otras Fotos/DSC_4111.jpg" alt="Carousel 3" class="carousel-img" />
-        <img src="Otras Fotos/DSC_4127.jpg" alt="Carousel 4" class="carousel-img" />
-        <img src="Otras Fotos/FICCION - SDB 1.png" alt="Carousel 5" class="carousel-img" />
-        <img src="Otras Fotos/FICCION JAPEUSA 1.png" alt="Carousel 6" class="carousel-img" />
-        <img src="Otras Fotos/YO LO VIVI CEMENTERIO 1.png" alt="Carousel 7" class="carousel-img" />
-        <img src="Otras Fotos/Imagen de WhatsApp 2025-10-12 a las 23.56.00_cebef793.jpg" alt="Carousel 8" class="carousel-img" />
+        <img src="Otras%20Fotos/DSC_4101.jpg" alt="Carousel 1" class="carousel-img" loading="lazy" />
+        <img src="Otras%20Fotos/DSC_4105.jpg" alt="Carousel 2" class="carousel-img" loading="lazy" />
+        <img src="Otras%20Fotos/DSC_4111.jpg" alt="Carousel 3" class="carousel-img" loading="lazy" />
+        <img src="Otras%20Fotos/DSC_4127.jpg" alt="Carousel 4" class="carousel-img" loading="lazy" />
+        <img src="Otras%20Fotos/FICCION%20-%20SDB%201.png" alt="Carousel 5" class="carousel-img" loading="lazy" />
+        <img src="Otras%20Fotos/FICCION%20-%20SDB%202.png" alt="Carousel 6" class="carousel-img" loading="lazy" />
+        <img src="Otras%20Fotos/DSC_4186.jpg" alt="Carousel 7" class="carousel-img" loading="lazy" />
+        <img src="Otras%20Fotos/Imagen%20de%20WhatsApp%202025-10-12%20a%20las%2023.56.00_cebef793.jpg" alt="Carousel 8" class="carousel-img" loading="lazy" />
       </div>
       <div class="container mission-vision-grid">
         <div class="card mission-card">
@@ -215,8 +264,8 @@ Así es trabajar con nosotros.
 
         <div class="video-card">
           <div class="video-wrapper">
-            <a class="video-thumb" href="https://youtu.be/tMDzT0zSssM?si=Tl8Oz9I8wGIg_Sxe" target="_blank" rel="noopener noreferrer">
-              <img src="Otras Fotos/solos 2 afiche oficial.jpg" alt="Lo más reciente - Manada Audiovisual" />
+            <a class="video-thumb" href="https://youtu.be/tMDzT0zSssM" target="_blank" rel="noopener noreferrer">
+              <img src="Otras%20Fotos/solos%202%20afiche%20oficial.jpg" alt="Lo más reciente - Manada Audiovisual" loading="lazy" />
             </a>
           </div>
 
@@ -260,17 +309,8 @@ Así es trabajar con nosotros.
           <div class="video-card compact">
             <h3>Último trabajo</h3>
             <div class="video-wrapper">
-              <a class="video-thumb" href="https://youtu.be/tMDzT0zSssM?si=Tl8Oz9I8wGIg_Sxe" target="_blank" rel="noopener noreferrer">
-                <img src="Otras Fotos/solos 2 afiche oficial.jpg" alt="Último trabajo - Manada Audiovisual" />
-              </a>
-            </div>
-          </div>
-
-          <div class="video-card compact">
-            <h3>Lo más popular</h3>
-            <div class="video-wrapper">
-              <a class="video-thumb" href="https://youtu.be/tMDzT0zSssM?si=Tl8Oz9I8wGIg_Sxe" target="_blank" rel="noopener noreferrer">
-                <img src="Otras Fotos/solos 2 afiche oficial.jpg" alt="Lo más popular - Manada Audiovisual" />
+              <a class="video-thumb" href="https://youtu.be/tMDzT0zSssM" target="_blank" rel="noopener noreferrer">
+                <img src="Otras%20Fotos/solos%202%20afiche%20oficial.jpg" alt="Último trabajo - Manada Audiovisual" loading="lazy" />
               </a>
             </div>
           </div>
@@ -302,11 +342,11 @@ Así es trabajar con nosotros.
 
           <div class="prod-videos-grid">
             <div class="mini-player">
-              <h4>Somos manada y esto es lo que hacemos</h4>
+              <h4>Lo que hacemos</h4>
               <div class="video-wrapper mini">
                 <iframe
-                  src="https://youtu.be/a7eCqMRzl7Q?si=mhMxdIO2N2DUU6Gk"
-                  title="Ficción - Manada Audiovisual"
+                  src="https://www.youtube.com/embed/a7eCqMRzl7Q"
+                  title="Eventos - Manada Audiovisual"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 ></iframe>
@@ -317,7 +357,7 @@ Así es trabajar con nosotros.
               <h4>Ficción</h4>
               <div class="video-wrapper mini">
                 <iframe
-                  src="https://youtu.be/Iuz6DQv1Sy8?si=IitdcMgTkp4-o6wk"
+                  src="https://www.youtube.com/embed/Iuz6DQv1Sy8"
                   title="Comerciales - Manada Audiovisual"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
@@ -329,7 +369,7 @@ Así es trabajar con nosotros.
               <h4>Ficción</h4>
               <div class="video-wrapper mini">
                 <iframe
-                  src="https://www.youtube.com/embed/tMDzT0zSssM?si=Tl8Oz9I8wGIg_Sxe"
+                  src="https://www.youtube.com/embed/tMDzT0zSssM"
                   title="Contenido Digital - Manada Audiovisual"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
@@ -342,7 +382,7 @@ Así es trabajar con nosotros.
               <div class="video-wrapper mini">
                 <iframe
                   src="https://www.youtube.com/embed/gMS_XDbb-78"
-                  title="Promos TV - Manada Audiovisual"
+                  title="Documentales - Manada Audiovisual"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 ></iframe>
@@ -353,7 +393,7 @@ Así es trabajar con nosotros.
               <h4>Videoclips</h4>
               <div class="video-wrapper mini">
                 <iframe
-                  src="https://www.youtube.com/embed/tMDzT0zSssM?si=Tl8Oz9I8wGIg_Sxe"
+                  src="https://www.youtube.com/embed/tMDzT0zSssM"
                   title="Clips Musicales - Manada Audiovisual"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
@@ -361,13 +401,15 @@ Así es trabajar con nosotros.
               </div>
             </div>
 
-        <div class="cta-row">
-          <p class="cta-text">¿Listo para producir? Sé parte de la Manada.</p>
-          <button class="btn-primary" data-scroll-target="#redes">
-            Producir con la Manada
-          </button>
-        </div>
-      </div>
+            <div class="cta-row">
+              <p class="cta-text">¿Listo para producir? Sé parte de la Manada.</p>
+              <button class="btn-primary" data-scroll-target="#redes">
+                Producir con la Manada
+              </button>
+            </div>
+          </div> <!-- .prod-videos-grid -->
+        </div> <!-- .two-column -->
+      </div> <!-- .container -->
     </section>
 
     <!-- NOSOTROS (EQUIPO, FILOSOFÍA, BACKSTAGE) -->
@@ -380,8 +422,9 @@ Así es trabajar con nosotros.
             <div class="team-photo">
               <!-- Reemplazar por foto real del team -->
               <img
-                src="Otras Fotos/max4.jpg"
+                src="Otras%20Fotos/max4.jpg"
                 alt="Equipo de Manada Audiovisual"
+                loading="lazy"
               />
             </div>
           </div>
@@ -402,16 +445,16 @@ Así es trabajar con nosotros.
               <div class="backstage-grid">
                 <!-- Reemplazar por fotos reales -->
                 <div class="backstage-item">
-                  <img src="Otras Fotos/DSC_4101.jpg" alt="Backstage 1" />
+                  <img src="Otras%20Fotos/DSC_4101.jpg" alt="Backstage 1" loading="lazy" />
                 </div>
                 <div class="backstage-item">
-                  <img src="Otras Fotos/DSC_4105.jpg" alt="Backstage 2" />
+                  <img src="Otras%20Fotos/DSC_4105.jpg" alt="Backstage 2" loading="lazy" />
                 </div>
                 <div class="backstage-item">
-                  <img src="Otras Fotos/DSC_4111.jpg" alt="Backstage 3" />
+                  <img src="Otras%20Fotos/DSC_4111.jpg" alt="Backstage 3" loading="lazy" />
                 </div>
                 <div class="backstage-item">
-                  <img src="Otras Fotos/DSC_4127.jpg" alt="Backstage 4" />
+                  <img src="Otras%20Fotos/DSC_4127.jpg" alt="Backstage 4" loading="lazy" />
                 </div>
               </div>
             </div>
@@ -456,6 +499,19 @@ Así es trabajar con nosotros.
             </button>
           </div>
         </div>
+
+        <div>
+          <h3>Evento destacado</h3>
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/a7eCqMRzl7Q"
+              title="Evento - Manada Audiovisual"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- POSTPRODUCCIÓN -->
@@ -485,6 +541,7 @@ Así es trabajar con nosotros.
             </button>
           </div>
         </div>
+      </div>
     </section>
 
     <!-- CASTING ONLINE -->
@@ -533,16 +590,12 @@ Así es trabajar con nosotros.
         </p>
 
         <div class="aliados-grid">
-          
             <a href="https://www.instagram.com/sarambi.studio/" class="aliado-card" target="_blank" rel="noopener noreferrer" aria-label="Sarambi Studio">
-              <img src="Aliados  Manada/sarambi[1].png" alt="Sarambi Studio" class="aliado-img" />
+              <img src="Aliados%20%20Manada/sarambi[1].png" alt="Logotipo Sarambi Studio — aliado de Manada Audiovisual" class="aliado-img" loading="lazy" />
             </a>
-        </div>
 
-                <div class="aliados-grid">
-
-            <a href="https://www.instagram.com/main_project_py?igsh=ZWF3czh3ZGs5MGcx&utm_source=qr" class="aliado-card" target="_blank" rel="noopener noreferrer" aria-label="Main Project">
-              <img src="Aliados  Manada/Logotipo Main Project.png" alt="Main Project" class="aliado-img" />
+            <a href="https://www.instagram.com/main_project_py" class="aliado-card" target="_blank" rel="noopener noreferrer" aria-label="Main Project">
+              <img src="Aliados%20%20Manada/Logotipo%20Main%20Project.png" alt="Logotipo Main Project — aliado de Manada Audiovisual" class="aliado-img" loading="lazy" />
             </a>
         </div>
 
@@ -576,7 +629,7 @@ Así es trabajar con nosotros.
           <h3>Visitá nuestras redes sociales</h3>
           <div class="social-icons">
             <a
-              href="https://youtube.com/@manadaaudiovisual?si=UZByk4sgZt8nRuDp"
+              href="https://youtube.com/@manadaaudiovisual"
               class="social-icon social-youtube"
               target="_blank"
               rel="noopener noreferrer"
@@ -588,7 +641,7 @@ Así es trabajar con nosotros.
             </a>
 
             <a
-              href="https://www.instagram.com/manadapy?igsh=MTRubzlkaWY5Nnk0dA=="
+              href="https://www.instagram.com/manadapy"
               class="social-icon social-instagram"
               target="_blank"
               rel="noopener noreferrer"
@@ -631,7 +684,7 @@ Así es trabajar con nosotros.
               title="WhatsApp: +595 0972500027"
             >
               <svg class="icon" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                <path fill="currentColor" d="M17.6 6.32c-1.7-1.7-4.03-2.64-6.48-2.64-5.04 0-9.14 4.1-9.14 9.14 0 1.61.42 3.16 1.21 4.55L2 22l4.82-1.26c1.33.78 2.85 1.19 4.44 1.19h.01c5.04 0 9.14-4.1 9.14-9.14 0-2.44-.94-4.75-2.65-6.48zm-6.48 13.78c-1.39 0-2.74-.36-3.93-1.05l-.28-.17-2.9.76.77-2.87-.18-.28c-.74-1.21-1.13-2.59-1.13-3.98 0-4.2 3.42-7.62 7.62-7.62 2.03 0 3.94.79 5.38 2.23 1.44 1.44 2.23 3.35 2.23 5.39 0 4.2-3.42 7.62-7.62 7.62zm4.17-5.74c-.23-.11-1.35-.67-1.56-.75-.21-.08-.36-.11-.51.11-.15.23-.59.75-.73.91-.13.15-.27.17-.5.06-.23-.11-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.66-.13-.23-.01-.35.1-.47.1-.1.23-.27.35-.4.11-.13.15-.23.23-.38.08-.15.04-.28-.02-.4-.06-.11-.51-1.23-.7-1.69-.18-.41-.37-.36-.51-.36-.13 0-.28-.01-.43-.01-.15 0-.39.06-.59.28-.2.23-.76.74-.76 1.81s.78 2.1.88 2.24c.1.15 1.4 2.14 3.4 3 .47.2.84.32 1.13.41.47.15.9.13 1.24.08.38-.06 1.17-.48 1.33-.94.16-.46.16-.85.11-.94-.05-.08-.2-.13-.42-.23z"/>
+                <path fill="currentColor" d="M17.6 6.32c-1.7-1.7-4.03-2.64-6.48-2.64-5.04 0-9.14 4.1-9.14 9.14 0 1.61.42 3.16 1.21 4.55L2 22l4.82-1.26c1.33.78 2.85 1.19 4.44 1.19h.01c5.04 0 9.14-4.1 9.14-9.14 0-2.44-.94-4.75-2.65-6.48zm-6.48 13.78c-1.39 0-2.74-.36-3.93-1.05l-.28-.17-2.9.76.77-2.87-.18-.28c-.74-1.21-1.13-2.59-1.13-3.98 0-4.2 3.42-7.62 7.62-7.62 2.03 0 3.94.79 5.38 2.23 1.44 1.44 2.23 3.35 2.23 5.39 0 4.2-3.42 7.62-7.62 7.62zm4.17-5.74c-.23-.11-1.35-.67-1.56-.75-.21-.08-.36-.11-.51.11-.15.23-.59.75-.73.91-.13.15-.27.17-.5.06-.23-.11-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.66-.13-.23-.01-.35.1-.47.1-.1.23-.27.35-.4.11-.13.15-.23.23-.38.08-.15.04-.28-.02-.4-.06-.11-.51-1.23-.7-1.69-.18-.41-.37-.36-.51-.36-.13 0-.28-.01-.43-.01-.15 0-.39.06-.59.28-.20.23-.76.74-.76 1.81s.78 2.1.88 2.24c.10.15 1.4 2.14 3.4 3 .47.2.84.32 1.13.41.47.15.9.13 1.24.08.38-.06 1.17-.48 1.33-.94.16-.46.16-.85.11-.94-.05-.08-.2-.13-.42-.23z"/>
               </svg>
             </a>
 
@@ -660,6 +713,154 @@ Así es trabajar con nosotros.
     </div>
   </footer>
 
+
+  <script>
+    // Actualiza el año en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Script: comprimir/expandir secciones (solo móvil) -->
+  <script>
+  (function(){
+    const mq = window.matchMedia('(max-width:900px)');
+    let active = false;
+
+    function setup(){
+      document.querySelectorAll('main section').forEach(sec=>{
+        if(sec.dataset.collapseInit) return;
+        const heading = sec.querySelector('h1,h2,h3,h4');
+        if(!heading) return;
+
+        // crear botón (visible solo por CSS en móvil)
+        const btn = document.createElement('button');
+        btn.className = 'collapse-btn';
+        btn.type = 'button';
+        btn.setAttribute('aria-expanded','true');
+        btn.title = 'Comprimir/Expandir sección';
+        btn.textContent = 'Comprimir';
+
+        btn.addEventListener('click', ()=>{
+          const isCollapsed = sec.classList.toggle('collapsed');
+          btn.setAttribute('aria-expanded', String(!isCollapsed));
+          btn.textContent = isCollapsed ? 'Mostrar' : 'Comprimir';
+
+          if(isCollapsed){
+            // calcular altura visible hasta el pie del heading (relative al section)
+            const secRect = sec.getBoundingClientRect();
+            const headRect = heading.getBoundingClientRect();
+            const visible = Math.max( (headRect.bottom - secRect.top) + 8, 40 );
+            sec.style.maxHeight = visible + 'px';
+            sec.style.overflow = 'hidden';
+            heading.scrollIntoView({behavior:'smooth', block:'nearest'});
+          } else {
+            // restaurar
+            sec.style.maxHeight = '';
+            sec.style.overflow = '';
+            setTimeout(()=> heading.scrollIntoView({behavior:'smooth', block:'start'}), 120);
+          }
+        });
+
+        sec.appendChild(btn);
+        sec.dataset.collapseInit = '1';
+      });
+    }
+
+    function teardown(){
+      document.querySelectorAll('main section').forEach(sec=>{
+        if(!sec.dataset.collapseInit) return;
+        sec.classList.remove('collapsed');
+        sec.style.maxHeight = '';
+        sec.style.overflow = '';
+        const btn = sec.querySelector('.collapse-btn');
+        if(btn) btn.remove();
+        delete sec.dataset.collapseInit;
+      });
+    }
+
+    function handleChange(e){
+      if(e.matches) { setup(); active = true; }
+      else if(active) { teardown(); active = false; }
+    }
+
+    if(mq.addEventListener) mq.addEventListener('change', handleChange);
+    else if(mq.addListener) mq.addListener(handleChange);
+
+    if(mq.matches) setup();
+  })();
+  </script>
+  <!-- JSON-LD básico para SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Manada Audiovisual",
+    "url": "https://manadaaudiovisual.com",
+    "logo": "https://manadaaudiovisual.com/Fotos%20para%20la%20pagina/SOLAMENTE%20LOGO.png",
+    "description": "Producción audiovisual: documentales, comerciales, eventos y postproducción en Paraguay",
+    "sameAs": [
+      "https://www.instagram.com/manadapy",
+      "https://youtube.com/@manadaaudiovisual",
+      "https://www.facebook.com/share/17hV52GTpF/?mibextid=wwXIfr",
+      "https://www.tiktok.com/@manadapy"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "email": "manadagroup.py@gmail.com",
+      "telephone": "+595 0972500027"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "PY"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: Organización + LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Manada Audiovisual",
+    "url": "https://manadaaudiovisual.com",
+    "logo": "https://manadaaudiovisual.com/Fotos%20para%20la%20pagina/SOLAMENTE%20LOGO.png",
+    "image": "https://manadaaudiovisual.com/Fotos%20para%20la%20pagina/SOLAMENTE%20LOGO.png",
+    "description": "Producción audiovisual profesional: documentales, comerciales, eventos y postproducción en Paraguay",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "PY",
+      "addressLocality": "Paraguay"
+    },
+    "areaServed": ["PY", "AR", "BR", "UY"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "email": "manadagroup.py@gmail.com",
+      "telephone": "+595-972-500027"
+    },
+    "sameAs": [
+      "https://www.instagram.com/manadapy",
+      "https://youtube.com/@manadaaudiovisual",
+      "https://www.facebook.com/share/17hV52GTpF/?mibextid=wwXIfr",
+      "https://www.tiktok.com/@manadapy"
+    ],
+    "priceRange": "$$$"
+  }
+  </script>
+
+  <!-- JSON-LD: Videos -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Manada Audiovisual - Así es trabajar con nosotros",
+    "description": "Video oficial de Manada Audiovisual - Producción audiovisual profesional",
+    "thumbnailUrl": "https://manadaaudiovisual.com/Otras%20Fotos/solos%202%20afiche%20oficial.jpg",
+    "uploadDate": "2025-12-22",
+    "duration": "PT5M",
+    "url": "https://youtu.be/tMDzT0zSssM"
+  }
+  </script>
 
   <script src="script.js"></script>
 </body>
