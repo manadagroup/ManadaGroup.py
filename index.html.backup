@@ -767,67 +767,13 @@ Así es trabajar con nosotros.
     const mq = window.matchMedia('(max-width:900px)');
     let active = false;
 
-    function toggleSectionCollapse(sec, heading, btn){
-      const isCollapsed = sec.classList.toggle('collapsed');
-      btn.setAttribute('aria-expanded', String(!isCollapsed));
-      btn.textContent = isCollapsed ? 'Mostrar' : 'Comprimir';
-
-      if(isCollapsed){
-        const secRect = sec.getBoundingClientRect();
-        const headRect = heading.getBoundingClientRect();
-        const visible = Math.max( (headRect.bottom - secRect.top) + 8, 40 );
-        sec.style.maxHeight = visible + 'px';
-        sec.style.overflow = 'hidden';
-        heading.scrollIntoView({behavior:'smooth', block:'nearest'});
-      } else {
-        sec.style.maxHeight = '';
-        sec.style.overflow = '';
-        setTimeout(()=> heading.scrollIntoView({behavior:'smooth', block:'start'}), 120);
-      }
-    }
-
-    function updateCollapseAllButton(){
-      const collapseAllBtn = document.querySelector('.collapse-all-btn');
-      if(!collapseAllBtn) return;
-      const sections = document.querySelectorAll('main section[data-collapse-init]');
-      const allCollapsed = sections.length > 0 && Array.from(sections).every(sec => sec.classList.contains('collapsed'));
-      if(allCollapsed){
-        collapseAllBtn.classList.add('all-collapsed');
-        collapseAllBtn.querySelector('.collapse-all-text').textContent = 'Expandir todo';
-      } else {
-        collapseAllBtn.classList.remove('all-collapsed');
-        collapseAllBtn.querySelector('.collapse-all-text').textContent = 'Comprimir todo';
-      }
-    }
-
-    function setupCollapseAllButton(){
-      const collapseAllBtn = document.querySelector('.collapse-all-btn');
-      if(!collapseAllBtn || collapseAllBtn.dataset.initialized) return;
-      collapseAllBtn.addEventListener('click', ()=>{
-        const sections = document.querySelectorAll('main section[data-collapse-init]');
-        const allCollapsed = Array.from(sections).every(sec => sec.classList.contains('collapsed'));
-        sections.forEach(sec=>{
-          const heading = sec.querySelector('h1,h2,h3,h4');
-          const btn = sec.querySelector('.collapse-btn');
-          if(!heading || !btn) return;
-          const shouldCollapse = !allCollapsed;
-          if(shouldCollapse && !sec.classList.contains('collapsed')){
-            toggleSectionCollapse(sec, heading, btn);
-          } else if(!shouldCollapse && sec.classList.contains('collapsed')){
-            toggleSectionCollapse(sec, heading, btn);
-          }
-        });
-        updateCollapseAllButton();
-      });
-      collapseAllBtn.dataset.initialized = '1';
-    }
-
     function setup(){
       document.querySelectorAll('main section').forEach(sec=>{
         if(sec.dataset.collapseInit) return;
         const heading = sec.querySelector('h1,h2,h3,h4');
         if(!heading) return;
 
+        // crear botón (visible solo por CSS en móvil)
         const btn = document.createElement('button');
         btn.className = 'collapse-btn';
         btn.type = 'button';
@@ -836,14 +782,29 @@ Así es trabajar con nosotros.
         btn.textContent = 'Comprimir';
 
         btn.addEventListener('click', ()=>{
-          toggleSectionCollapse(sec, heading, btn);
-          updateCollapseAllButton();
+          const isCollapsed = sec.classList.toggle('collapsed');
+          btn.setAttribute('aria-expanded', String(!isCollapsed));
+          btn.textContent = isCollapsed ? 'Mostrar' : 'Comprimir';
+
+          if(isCollapsed){
+            // calcular altura visible hasta el pie del heading (relative al section)
+            const secRect = sec.getBoundingClientRect();
+            const headRect = heading.getBoundingClientRect();
+            const visible = Math.max( (headRect.bottom - secRect.top) + 8, 40 );
+            sec.style.maxHeight = visible + 'px';
+            sec.style.overflow = 'hidden';
+            heading.scrollIntoView({behavior:'smooth', block:'nearest'});
+          } else {
+            // restaurar
+            sec.style.maxHeight = '';
+            sec.style.overflow = '';
+            setTimeout(()=> heading.scrollIntoView({behavior:'smooth', block:'start'}), 120);
+          }
         });
 
         sec.appendChild(btn);
         sec.dataset.collapseInit = '1';
       });
-      updateCollapseAllButton();
     }
 
     function teardown(){
@@ -856,21 +817,19 @@ Así es trabajar con nosotros.
         if(btn) btn.remove();
         delete sec.dataset.collapseInit;
       });
-      updateCollapseAllButton();
     }
 
     function handleChange(e){
-      if(e.matches) { setup(); setupCollapseAllButton(); active = true; }
+      if(e.matches) { setup(); active = true; }
       else if(active) { teardown(); active = false; }
     }
 
     if(mq.addEventListener) mq.addEventListener('change', handleChange);
     else if(mq.addListener) mq.addListener(handleChange);
 
-    if(mq.matches) { setup(); setupCollapseAllButton(); }
+    if(mq.matches) setup();
   })();
   </script>
-
   <!-- JSON-LD básico para SEO -->
   <script type="application/ld+json">
   {
