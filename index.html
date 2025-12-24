@@ -18,79 +18,73 @@
 
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Ajustes para botón de comprimir/expandir: solo estilos móviles -->
+  <!-- Ajustes para botón de comprimir/expandir: móvil y PC -->
   <style>
     .section { position: relative; }
 
-    /* Por defecto no afecta layout en escritorio */
-    .collapse-btn{ display: none; }
-    .collapse-all-btn{ display: none; }
+    .collapse-btn{
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      z-index: 10;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-    @media (max-width: 900px) {
-      .collapse-btn{
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        background: rgba(0,0,0,0.6);
-        color: #fff;
-        border: none;
-        padding: 6px 10px;
-        border-radius: 6px;
-        font-size: 14px;
-        cursor: pointer;
-        z-index: 10;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-      }
+    .collapse-all-btn{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(38, 156, 207, 0.2);
+      border: 1px solid rgba(38, 156, 207, 0.4);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 200ms ease;
+      margin-right: 10px;
+    }
 
-      .collapse-all-btn{
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: rgba(38, 156, 207, 0.2);
-        border: 1px solid rgba(38, 156, 207, 0.4);
-        color: #fff;
-        padding: 8px 12px;
-        border-radius: 6px;
-        font-size: 13px;
-        cursor: pointer;
-        transition: all 200ms ease;
-        margin-right: 10px;
-      }
+    .collapse-all-btn:hover{
+      background: rgba(38, 156, 207, 0.35);
+      border-color: rgba(38, 156, 207, 0.6);
+    }
 
-      .collapse-all-btn:hover{
-        background: rgba(38, 156, 207, 0.35);
-        border-color: rgba(38, 156, 207, 0.6);
-      }
+    .collapse-all-icon{
+      display: inline-block;
+      transition: transform 250ms ease;
+    }
 
-      .collapse-all-icon{
-        display: inline-block;
-        transition: transform 250ms ease;
-      }
+    .collapse-all-btn.all-collapsed .collapse-all-icon{
+      transform: rotate(180deg);
+    }
 
-      .collapse-all-btn.all-collapsed .collapse-all-icon{
-        transform: rotate(180deg);
-      }
+    .collapse-all-text{
+      font-weight: 500;
+    }
 
-      .collapse-all-text{
-        font-weight: 500;
-      }
+    .section-header{ display:block; }
 
-      .section-header{ display:block; }
+    .section-body{
+      transition: max-height 320ms ease, opacity 300ms ease;
+      overflow: hidden;
+      max-height: 20000px;
+      opacity: 1;
+    }
 
-      .section-body{
-        transition: max-height 320ms ease, opacity 300ms ease;
-        overflow: hidden;
-        max-height: 20000px;
-        opacity: 1;
-      }
-
-      .section.collapsed .section-body{
-        max-height: 0 !important;
-        opacity: 0;
-        pointer-events: none;
-      }
+    .section.collapsed .section-body{
+      max-height: 0 !important;
+      opacity: 0;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -306,7 +300,7 @@ Así es trabajar con nosotros.
 
         <div class="video-card">
           <div class="video-wrapper">
-            <a class="video-thumb" href="https://youtu.be/tMDzT0zSssM" target="_blank" rel="noopener noreferrer">
+            <a class="video-thumb" href="https://youtu.be/Iv-c90F_fQY?si=BMozI2wunDa3Z7vL" target="_blank" rel="noopener noreferrer">
               <img src="Otras%20Fotos/solos%202%20afiche%20oficial.jpg" alt="Lo más reciente - Manada Audiovisual" loading="lazy" />
             </a>
           </div>
@@ -341,9 +335,7 @@ Así es trabajar con nosotros.
             <p class="cta-text">
               ¿Tenés una idea? Nosotros la volvemos realidad. Unite a la Manada.
             </p>
-            <button class="btn-primary" data-scroll-target="#redes">
-              Crear mi proyecto con Manada
-            </button>
+            <a href="https://wa.me/595972500027?text=Hola!%20Vengo%20de%20la%20p%C3%A1gina%20web%20de%20Manada%20Audiovisual.%20Quisiera%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20crear%20mi%20proyecto%20con%20Manada." target="_blank" rel="noopener noreferrer" class="btn-primary">Crear mi proyecto con Manada</a>
           </div>
         </div>
 
@@ -351,7 +343,7 @@ Así es trabajar con nosotros.
           <div class="video-card compact">
             <h3>Último trabajo</h3>
             <div class="video-wrapper">
-              <a class="video-thumb" href="https://youtu.be/tMDzT0zSssM" target="_blank" rel="noopener noreferrer">
+              <a class="video-thumb" href="https://youtu.be/tMDzT0zSssM?si=s1j38nAkSvtYj3ja" target="_blank" rel="noopener noreferrer">
                 <img src="Otras%20Fotos/solos%202%20afiche%20oficial.jpg" alt="Último trabajo - Manada Audiovisual" loading="lazy" />
               </a>
             </div>
@@ -384,70 +376,45 @@ Así es trabajar con nosotros.
 
           <div class="prod-videos-grid">
             <div class="mini-player">
-              <h4>Lo que hacemos</h4>
+              <h4>Comerciales</h4>
               <div class="video-wrapper mini">
-                <iframe
-                  src="https://www.youtube.com/embed/a7eCqMRzl7Q"
-                  title="Eventos - Manada Audiovisual"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </div>
-
-            <div class="mini-player">
-              <h4>Ficción</h4>
-              <div class="video-wrapper mini">
-                <iframe
-                  src="https://www.youtube.com/embed/Iuz6DQv1Sy8"
-                  title="Comerciales - Manada Audiovisual"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </div>
-
-            <div class="mini-player">
-              <h4>Ficción</h4>
-              <div class="video-wrapper mini">
-                <iframe
-                  src="https://www.youtube.com/embed/tMDzT0zSssM"
-                  title="Contenido Digital - Manada Audiovisual"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
+                <a class="video-thumb" href="https://youtu.be/Iuz6DQv1Sy8?si=zFd53VF-7RfizXNy" target="_blank" rel="noopener noreferrer" title="Ver Comerciales en YouTube">
+                  <img src="Fotos%20para%20la%20pagina/Comerciales%20logo.jpeg" alt="Comerciales - Demo reel" loading="lazy" />
+                </a>
               </div>
             </div>
 
             <div class="mini-player">
               <h4>Documentales</h4>
               <div class="video-wrapper mini">
-                <iframe
-                  src="https://www.youtube.com/embed/gMS_XDbb-78"
-                  title="Documentales - Manada Audiovisual"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </div>
-                        
-            <div class="mini-player">
-              <h4>Videoclips</h4>
-              <div class="video-wrapper mini">
-                <iframe
-                  src="https://www.youtube.com/embed/tMDzT0zSssM"
-                  title="Clips Musicales - Manada Audiovisual"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
+                <a class="video-thumb" href="https://youtu.be/gMS_XDbb-78?si=Dr73Y9Q6XWibG01k" target="_blank" rel="noopener noreferrer" title="Ver Documentales en YouTube">
+                  <img src="Fotos%20para%20la%20pagina/Documentales%20logo.jpeg" alt="Documentales - Demo reel" loading="lazy" />
+                </a>
               </div>
             </div>
 
+            <div class="mini-player">
+              <h4>Ficción</h4>
+              <div class="video-wrapper mini">
+                <a class="video-thumb" href="https://youtu.be/Iv-c90F_fQY?si=5kQJ-yvSzpcvDx33" target="_blank" rel="noopener noreferrer" title="Ver Ficción en YouTube">
+                  <img src="Fotos%20para%20la%20pagina/Ficcion%20Logo.jpeg" alt="Ficción - Demo reel" loading="lazy" />
+                </a>
+              </div>
+            </div>
+
+            <div class="mini-player">
+              <h4>Videoclips</h4>
+              <div class="video-wrapper mini">
+                <a class="video-thumb" href="https://youtu.be/Xwti7LOTwgQ?si=P7R4my4bQbU6qIpN" target="_blank" rel="noopener noreferrer" title="Ver Videoclips en YouTube">
+                  <img src="Fotos%20para%20la%20pagina/VideoClipLogo.jpeg" alt="Videoclip - Demo reel" loading="lazy" />
+                </a>
+              </div>
+            </div>
+          </div>
+
             <div class="cta-row">
               <p class="cta-text">¿Listo para producir? Sé parte de la Manada.</p>
-              <button class="btn-primary" data-scroll-target="#redes">
-                Producir con la Manada
-              </button>
+              <a href="https://wa.me/595972500027?text=Hola!%20Vengo%20de%20la%20p%C3%A1gina%20web%20de%20Manada%20Audiovisual.%20Quisiera%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20producir%20con%20Manada." target="_blank" rel="noopener noreferrer" class="btn-primary">Producir con la Manada</a>
             </div>
           </div> <!-- .prod-videos-grid -->
         </div> <!-- .two-column -->
@@ -536,21 +503,15 @@ Así es trabajar con nosotros.
             <p class="cta-text">
               👉 Inmortalizá tu evento. Sé parte de la Manada.
             </p>
-            <button class="btn-primary" data-scroll-target="#redes">
-              Contratar cobertura
-            </button>
+            <a href="https://wa.me/595972500027?text=Hola!%20Vengo%20de%20la%20p%C3%A1gina%20web%20de%20Manada%20Audiovisual.%20Quisiera%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20contratar%20cobertura." target="_blank" rel="noopener noreferrer" class="btn-primary">Contratar cobertura</a>
           </div>
         </div>
 
         <div>
           <h3>Evento destacado</h3>
-          <div class="video-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/a7eCqMRzl7Q"
-              title="Evento - Manada Audiovisual"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+            <a class="video-thumb" href="https://youtu.be/a7eCqMRzl7Q" target="_blank" rel="noopener noreferrer" title="Ver Evento en YouTube">
+              <img src="Fotos%20para%20la%20pagina/Eventos%20logo.jpeg" alt="Evento - Demo reel" loading="lazy" />
+            </a>
           </div>
         </div>
       </div>
@@ -578,9 +539,7 @@ Así es trabajar con nosotros.
             <p class="cta-text">
               Tu proyecto merece el mejor acabado. Sé parte de la Manada.
             </p>
-            <button class="btn-primary" data-scroll-target="#redes">
-              Postproducir con Manada
-            </button>
+            <a href="https://wa.me/595972500027?text=Hola!%20Vengo%20de%20la%20p%C3%A1gina%20web%20de%20Manada%20Audiovisual.%20Quisiera%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20postproducir%20con%20Manada." target="_blank" rel="noopener noreferrer" class="btn-primary">Postproducir con Manada</a>
           </div>
         </div>
       </div>
@@ -761,10 +720,10 @@ Así es trabajar con nosotros.
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-  <!-- Script: comprimir/expandir secciones (solo móvil) -->
+  <!-- Script: comprimir/expandir secciones (móvil y PC) -->
   <script>
   (function(){
-    const mq = window.matchMedia('(max-width:900px)');
+    const mq = window.matchMedia('(min-width:0px)');
     let active = false;
 
     function toggleSectionCollapse(sec, heading, btn){
