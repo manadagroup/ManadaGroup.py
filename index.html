@@ -3,848 +3,292 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manada Audiovisual | Creamos historias</title>
-
-  <meta name="description" content="Manada Audiovisual — producción audiovisual: documentales, comerciales, eventos y postproducción.">
-  <meta name="keywords" content="producción audiovisual, documentales, comerciales, eventos, postproducción, Paraguay">
-  <meta property="og:title" content="Manada Audiovisual">
-  <meta property="og:description" content="Creamos historias que conectan: documentales, comerciales, eventos y más.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://manada.com.py/">
-  <meta property="og:image" content="https://manada.com.py/Fotos%20para%20la%20pagina/SOLAMENTE%20LOGO.png">
-  <meta property="og:image:alt" content="Logo de Manada Audiovisual">
-  <link rel="canonical" href="https://manada.com.py/">
-  <link rel="icon" href="/favicon.png" sizes="96x96" type="image/png">
-  <link rel="apple-touch-icon" href="/favicon.png">
-
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- Ajustes para botón de comprimir/expandir: móvil y PC -->
-  <style>
-    .section { position: relative; }
-
-    .collapse-btn{
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      border: none;
-      padding: 6px 10px;
-      border-radius: 6px;
-      font-size: 14px;
-      cursor: pointer;
-      z-index: 10;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .collapse-all-btn{
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(38, 156, 207, 0.2);
-      border: 1px solid rgba(38, 156, 207, 0.4);
-      color: #fff;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 13px;
-      cursor: pointer;
-      transition: all 200ms ease;
-      margin-right: 10px;
-    }
-
-    .collapse-all-btn:hover{
-      background: rgba(38, 156, 207, 0.35);
-      border-color: rgba(38, 156, 207, 0.6);
-    }
-
-    .collapse-all-icon{
-      display: inline-block;
-      transition: transform 250ms ease;
-    }
-
-    .collapse-all-btn.all-collapsed .collapse-all-icon{
-      transform: rotate(180deg);
-    }
-
-    .collapse-all-text{
-      font-weight: 500;
-    }
-
-    .section-header{ display:block; }
-
-    .section-body{
-      transition: max-height 320ms ease, opacity 300ms ease;
-      overflow: hidden;
-      max-height: 20000px;
-      opacity: 1;
-    }
-
-    .section.collapsed .section-body{
-      max-height: 0 !important;
-      opacity: 0;
-      pointer-events: none;
-    }
-  </style>
+  <meta name="theme-color" content="#080b0d" />
+  <meta name="description" content="Manada Audiovisual: productora paraguaya de comerciales, documentales, ficción, videoclips y eventos. Creamos historias que se ven, se sienten y se recuerdan." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Manada Audiovisual | Creamos historias que se ven" />
+  <meta property="og:description" content="Transformamos ideas en historias audiovisuales para marcas, artistas y proyectos." />
+  <meta property="og:url" content="https://manada.com.py/" />
+  <meta property="og:image" content="https://manada.com.py/Fotos%20para%20la%20pagina/manada-logo-mark.png" />
+  <meta property="og:image:alt" content="Logo de Manada Audiovisual" />
+  <link rel="canonical" href="https://manada.com.py/" />
+  <link rel="icon" href="/favicon.png" sizes="96x96" type="image/png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="Otras%20Fotos/DSC_4186.jpg" />
+  <link rel="stylesheet" href="site.css" />
+  <title>Manada Audiovisual | Creamos historias que se ven</title>
 </head>
 <body>
   <header class="main-header">
     <div class="container nav-container">
-      <div class="logo-wrapper">
-        <img src="Fotos%20para%20la%20pagina/SOLAMENTE%20LOGO.png" alt="Logo Manada Audiovisual" class="logo-img" fetchpriority="high" decoding="async" />
-        <div class="logo">
-          <span class="logo-main">Manada</span>
-          <span class="logo-sub">Audiovisual</span>
-        </div>
-      </div>
+      <a class="brand" href="#inicio" aria-label="Manada Audiovisual, inicio">
+        <img src="Fotos%20para%20la%20pagina/manada-logo-mark.png" alt="" class="brand-mark" fetchpriority="high" />
+        <span class="brand-type"><strong>Manada</strong><small>Audiovisual</small></span>
+      </a>
 
-      <button class="nav-toggle" aria-label="Abrir menú">
-        <span class="nav-toggle-line"></span>
-        <span class="nav-toggle-line"></span>
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
       </button>
 
-      <button class="collapse-all-btn" aria-label="Comprimir todas las secciones" title="Comprimir/Expandir todas las secciones">
-        <span class="collapse-all-icon">▼</span>
-        <span class="collapse-all-text">Comprimir todo</span>
-      </button>
-
-      <nav class="main-nav">
+      <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
         <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#lo-mas-reciente">Lo más reciente</a></li>
-          <li><a href="#proyecto">Crear proyecto</a></li>
-          <li><a href="#produccion">Producción</a></li>
-          <li><a href="#casting">Casting</a></li>
-          <li><a href="#aliados">Aliados</a></li>
+          <li><a href="#inicio" class="nav-active">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#trabajos">Trabajos</a></li>
+          <li><a href="#talentos">Talentos</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#redes">Redes</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
+
+      <a href="https://wa.me/595972500027" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+        <i class="ph ph-whatsapp-logo" aria-hidden="true"></i><span>WhatsApp</span>
+      </a>
     </div>
   </header>
 
   <main>
-    <!-- HERO / INICIO -->
     <section id="inicio" class="hero">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <p class="hero-kicker">Bienvenido a</p>
-          <h1>
-            Manada Audiovisual<br />
-            <span>Creamos historias que conectan</span>
-          </h1>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Productora audiovisual en Paraguay</p>
+          <h1>Creamos historias<br />que se ven, se sienten<br />y <span>se recuerdan.</span></h1>
           <p class="hero-description">
-            Somos Manada Audiovisual. Creamos historias que conectan, emocionan
-            y dejan huella. Transformamos ideas en contenido profesional para
-            marcas, empresas y proyectos que buscan impacto real.
+            Transformamos ideas en contenido de alto impacto para marcas, artistas y proyectos que quieren conectar con su audiencia.
           </p>
-
-          <div class="hero-cta-group">
-            <button class="btn-primary" data-scroll-target="#redes">
-              👉 Sumarte a la Manada
-            </button>
-            <p class="hero-note">
-              Proyectos, marcas, eventos y productos con ganas de crecer: este es su lugar.
-            </p>
+          <div class="hero-actions">
+            <a href="#trabajos" class="btn-primary"><i class="ph ph-play" aria-hidden="true"></i> Ver showreel</a>
+            <a href="#contacto" class="btn-outline">Producir con Manada</a>
           </div>
         </div>
 
-        <div class="hero-card">
-          <h2>Lo que hacemos</h2>
-          <ul class="services-list">
-            <li>Producción y cobertura de eventos</li>
-            <li>Contenido digital para redes sociales</li>
-            <li>Spots publicitarios y corporativos</li>
-            <li>Aftermovies, videoclips y documentales</li>
-          </ul>
+        <div class="features-bar" aria-label="Opciones para trabajar con Manada">
+          <a class="feature-item" href="#contacto">
+            <i class="ph ph-clapperboard feature-icon" aria-hidden="true"></i>
+            <span><strong>Quiero producir<br />un proyecto</strong><small>Contanos tu idea</small></span>
+          </a>
+          <a class="feature-item" href="#talentos">
+            <i class="ph ph-user-focus feature-icon" aria-hidden="true"></i>
+            <span><strong>Tengo talento<br />para mostrar</strong><small>Sumate a nuestra base</small></span>
+          </a>
+          <a class="feature-item" href="mailto:manadagroup.py@gmail.com?subject=Quiero%20trabajar%20con%20Manada">
+            <i class="ph ph-users-three feature-icon" aria-hidden="true"></i>
+            <span><strong>Quiero trabajar<br />con Manada</strong><small>Enviá tu CV o propuesta</small></span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- MISIÓN / VISIÓN -->
-    <section id="nosotros-mision-vision" class="section section-alt mission-vision-section">
-      <div class="mission-vision-carousel">
-        <img src="Otras%20Fotos/DSC_4101.jpg" alt="Carousel 1" class="carousel-img" loading="lazy" />
-        <img src="Otras%20Fotos/DSC_4105.jpg" alt="Carousel 2" class="carousel-img" loading="lazy" />
-        <img src="Otras%20Fotos/DSC_4111.jpg" alt="Carousel 3" class="carousel-img" loading="lazy" />
-        <img src="Otras%20Fotos/DSC_4127.jpg" alt="Carousel 4" class="carousel-img" loading="lazy" />
-        <img src="Otras%20Fotos/FICCION%20-%20SDB%201.png" alt="Carousel 5" class="carousel-img" loading="lazy" />
-        <img src="Otras%20Fotos/DSC_4282.jpg" alt="Carousel 6" class="carousel-img" loading="lazy" />
-        <img src="Otras%20Fotos/max4.jpg" alt="Carousel 7" class="carousel-img" loading="lazy" />
-        <img src="Otras%20Fotos/Imagen%20de%20WhatsApp%202025-10-12%20a%20las%2023.56.00_cebef793.jpg" alt="Carousel 8" class="carousel-img" loading="lazy" />
-
-        <img src="Otras%20Fotos/DSC_4101.jpg" alt="Carousel 1" class="carousel-img" loading="lazy" />
-        <img src="Otras%20Fotos/DSC_4105.jpg" alt="Carousel 2" class="carousel-img" loading="lazy" />
-        <img src="Otras%20Fotos/DSC_4111.jpg" alt="Carousel 3" class="carousel-img" loading="lazy" />
-        <img src="Otras%20Fotos/DSC_4127.jpg" alt="Carousel 4" class="carousel-img" loading="lazy" />
-        <img src="Otras%20Fotos/FICCION%20-%20SDB%201.png" alt="Carousel 5" class="carousel-img" loading="lazy" />
-        <img src="Otras%20Fotos/FICCION%20-%20SDB%202.png" alt="Carousel 6" class="carousel-img" loading="lazy" />
-        <img src="Otras%20Fotos/DSC_4186.jpg" alt="Carousel 7" class="carousel-img" loading="lazy" />
-        <img src="Otras%20Fotos/Imagen%20de%20WhatsApp%202025-10-12%20a%20las%2023.56.00_cebef793.jpg" alt="Carousel 8" class="carousel-img" loading="lazy" />
-      </div>
-      <div class="container mission-vision-grid">
-        <div class="card mission-card">
-          <h2>Misión</h2>
-          <p>
-            Crear contenido audiovisual de alto impacto, con identidad propia
-            y calidad profesional.
-          </p>
-        </div>
-
-        <div class="card vision-card">
-          <h2>Visión</h2>
-          <p>
-            Ser una productora referente en creatividad, innovación y
-            profesionalismo en Paraguay y la región.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOBRE MANADA AUDIOVISUAL -->
-    <section id="sobre-nosotros" class="section section-alt">
-      <div class="container two-column stacked-on-mobile">
-        <div>
-          <h2>Sobre Manada Audiovisual</h2>
-          <p>
-            Manada Audiovisual es una productora creativa paraguaya dedicada a contar
-            historias con identidad, emoción y calidad cinematográfica.
-          </p>
-          <p>
-            Desarrollamos contenidos para marcas, artistas, empresas y plataformas
-            digitales, trabajando desde la idea hasta el producto final.
-          </p>
-          <p>
-            Creemos en la combinación perfecta entre creatividad, técnica y planificación.
-            Cada proyecto es tratado como una obra única, con una narrativa clara,
-            estética sólida y una ejecución profesional que respeta tiempos, objetivos
-            y resultados.
-          </p>
-          <p>
-            Nuestra misión es acompañar a las marcas y a las personas a comunicar mejor,
-            conectar más y dejar huella. Somos un equipo flexible, apasionado y comprometido
-            con crear contenidos que se sientan vivos, auténticos y memorables.
-          </p>
-          <p><strong>¿Estás listo para unirte a la Manada?</strong></p>
-        </div>
-
-        <div>
-          <h3>Servicios de Manada Audiovisual</h3>
-
-          <h4>Producción Audiovisual</h4>
-          <ul class="bullet-list">
-            <li>Comerciales</li>
-            <li>Spots publicitarios</li>
-            <li>Contenido digital</li>
-            <li>Videos corporativos</li>
-            <li>Documentales</li>
-            <li>Videoclips</li>
-            <li>Promos para TV</li>
-          </ul>
-
-          <h4>Postproducción</h4>
-          <ul class="bullet-list">
-            <li>Edición profesional</li>
-            <li>Color grading</li>
-            <li>Diseño sonoro</li>
-            <li>Motion graphics</li>
-            <li>Corrección de color</li>
-            <li>Montaje para TV y plataformas</li>
-          </ul>
-
-          <h4>Coberturas y eventos</h4>
-          <ul class="bullet-list">
-            <li>Producción y registro de eventos</li>
-            <li>Cobertura corporativa</li>
-            <li>Activaciones de marca</li>
-            <li>Aftermovies</li>
-          </ul>
-
-          <h4>Desarrollo de proyectos</h4>
-          <ul class="bullet-list">
-            <li>Concepto creativo</li>
-            <li>Guion</li>
-            <li>Storyboard</li>
-            <li>Dirección y producción general</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- REPRODUCTOR: LO MÁS RECIENTE -->
-    <section id="lo-mas-reciente" class="section">
-      <div class="container section-grid">
-        <div class="section-text">
-          <h2>ASÍ ES TRABAJAR CON MANADA</h2>
-          <p>
-En Manada no solo producimos videos.
-
-Creamos relatos con identidad, ritmo y verdad.
-
-Trabajamos desde la idea hasta la ejecución: documentales, contenido de marca, piezas audiovisuales y proyectos narrativos pensados para conectar con personas reales.
-
-Cada proyecto es un proceso colaborativo.
-
-Cada historia tiene un porqué.
-
-Cada imagen tiene intención.
-
-Esto es Manada.
-Así es trabajar con nosotros.
-          </p>
-          <p class="section-hint">
-
-          </p>
-        </div>
-
-        <div class="video-card">
-          <div class="video-wrapper">
-            <a class="video-thumb" href="https://youtu.be/Iv-c90F_fQY?si=5kQJ-yvSzpcvDx33" target="_blank" rel="noopener noreferrer" title="Ficción Demo Reel - Manada Audiovisual">
-              <img src="Fotos%20para%20la%20pagina/Ficcion%20Logo.jpeg" alt="Ficción Demo Reel - Manada Audiovisual" loading="lazy" />
-            </a>
-          </div>
-        </div>
-
-          <p class="video-caption">
-          - Video Oficial | Manada Audiovisual
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CREAR Y DESARROLLAR PROYECTO -->
-    <section id="proyecto" class="section">
-      <div class="container two-column">
-        <div>
-          <h2>Crear y desarrollar proyecto</h2>
-          <p>
-            En Manada desarrollamos proyectos desde cero:
-          </p>
-          <ul class="bullet-list">
-            <li>Concepto creativo</li>
-            <li>Guion</li>
-            <li>Storyboard</li>
-            <li>Dirección</li>
-            <li>Producción general</li>
-          </ul>
-          <p>
-            Convertimos ideas en contenido sólido, profesional y listo para trascender.
-          </p>
-
-          <div class="cta-stack">
-            <p class="cta-text">
-              ¿Tenés una idea? Nosotros la volvemos realidad. Unite a la Manada.
-            </p>
-            <a href="https://wa.me/595972500027?text=Hola!%20Vengo%20de%20la%20p%C3%A1gina%20web%20de%20Manada%20Audiovisual.%20Quisiera%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20crear%20mi%20proyecto%20con%20Manada." target="_blank" rel="noopener noreferrer" class="btn-primary">Crear mi proyecto con Manada</a>
-          </div>
-        </div>
-
-        <div class="video-pair">
-          <div class="video-card compact">
-            <h3>Último trabajo</h3>
-            <div class="video-wrapper">
-              <a class="video-thumb" href="https://youtu.be/tMDzT0zSssM?si=s1j38nAkSvtYj3ja" target="_blank" rel="noopener noreferrer">
-                <img src="Otras%20Fotos/solos%202%20afiche%20oficial.jpg" alt="Último trabajo - Manada Audiovisual" loading="lazy" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRODUCCIÓN AUDIOVISUAL -->
-    <section id="produccion" class="section section-alt">
+    <section id="servicios" class="section">
       <div class="container">
-        <div class="two-column">
+        <div class="section-heading">
           <div>
-            <h2>Producción Audiovisual</h2>
-            <p>
-              Producimos contenido con narrativa, estética y profesionalismo.
-              Tu marca, producto o historia merece calidad real.
-            </p>
-            <h3>Servicios</h3>
-            <ul class="bullet-list">
-              <li>Comerciales</li>
-              <li>Spots publicitarios</li>
-              <li>Contenido digital</li>
-              <li>Videos corporativos</li>
-              <li>Documentales</li>
-              <li>Videoclips</li>
-              <li>Promos para TV</li>
-            </ul>
+            <p class="section-kicker">Servicios</p>
+            <h2>Soluciones audiovisuales<br />para cada necesidad</h2>
           </div>
+          <a href="#contacto" class="btn-outline btn-small">Ver todos los servicios <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </div>
 
-          <div class="prod-videos-grid">
-            <div class="mini-player">
-              <h4>Comerciales</h4>
-              <div class="video-wrapper mini">
-                <a class="video-thumb" href="https://youtu.be/Iuz6DQv1Sy8?si=zFd53VF-7RfizXNy" target="_blank" rel="noopener noreferrer" title="Ver Comerciales en YouTube">
-                  <img src="Fotos%20para%20la%20pagina/Comerciales%20logo.jpeg" alt="Comerciales - Demo reel" loading="lazy" />
-                </a>
-              </div>
-            </div>
-
-            <div class="mini-player">
-              <h4>Documentales</h4>
-              <div class="video-wrapper mini">
-                <a class="video-thumb" href="https://youtu.be/gMS_XDbb-78?si=Dr73Y9Q6XWibG01k" target="_blank" rel="noopener noreferrer" title="Ver Documentales en YouTube">
-                  <img src="Fotos%20para%20la%20pagina/Documentales%20logo.jpeg" alt="Documentales - Demo reel" loading="lazy" />
-                </a>
-              </div>
-            </div>
-
-            <div class="mini-player">
-              <h4>Ficción</h4>
-              <div class="video-wrapper mini">
-                <a class="video-thumb" href="https://youtu.be/Iv-c90F_fQY?si=5kQJ-yvSzpcvDx33" target="_blank" rel="noopener noreferrer" title="Ver Ficción en YouTube">
-                  <img src="Fotos%20para%20la%20pagina/Ficcion%20Logo.jpeg" alt="Ficción - Demo reel" loading="lazy" />
-                </a>
-              </div>
-            </div>
-
-            <div class="mini-player">
-              <h4>Videoclips</h4>
-              <div class="video-wrapper mini">
-                <a class="video-thumb" href="https://youtu.be/Xwti7LOTwgQ?si=P7R4my4bQbU6qIpN" target="_blank" rel="noopener noreferrer" title="Ver Videoclips en YouTube">
-                  <img src="Fotos%20para%20la%20pagina/VideoClipLogo.jpeg" alt="Videoclip - Demo reel" loading="lazy" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-            <div class="cta-row">
-              <p class="cta-text">¿Listo para producir? Sé parte de la Manada.</p>
-              <a href="https://wa.me/595972500027?text=Hola!%20Vengo%20de%20la%20p%C3%A1gina%20web%20de%20Manada%20Audiovisual.%20Quisiera%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20producir%20con%20Manada." target="_blank" rel="noopener noreferrer" class="btn-primary">Producir con la Manada</a>
-            </div>
-          </div> <!-- .prod-videos-grid -->
-        </div> <!-- .two-column -->
-      </div> <!-- .container -->
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <img src="Otras%20Fotos/DSC_4186.jpg" alt="Equipo audiovisual en un rodaje nocturno" loading="lazy" />
+            <div class="service-copy"><span class="service-icon"><i class="ph ph-video-camera" aria-hidden="true"></i></span><h3>Producción audiovisual</h3><p>Comerciales, institucionales, documentales y ficción.</p></div>
+          </article>
+          <article class="service-card reveal">
+            <img src="Otras%20Fotos/DSC_4101.jpg" alt="Equipo de Manada filmando una producción" loading="lazy" />
+            <div class="service-copy"><span class="service-icon"><i class="ph ph-desktop" aria-hidden="true"></i></span><h3>Postproducción</h3><p>Edición, color, motion graphics y diseño sonoro.</p></div>
+          </article>
+          <article class="service-card reveal">
+            <img src="Otras%20Fotos/DSC_4127.jpg" alt="Talentos durante una producción audiovisual" loading="lazy" />
+            <div class="service-copy"><span class="service-icon"><i class="ph ph-calendar-star" aria-hidden="true"></i></span><h3>Cobertura de eventos</h3><p>Eventos corporativos, sociales, deportivos y culturales.</p></div>
+          </article>
+          <article class="service-card reveal">
+            <img src="Otras%20Fotos/DSC_4111.jpg" alt="Preparación de maquillaje para una escena" loading="lazy" />
+            <div class="service-copy"><span class="service-icon"><i class="ph ph-device-mobile" aria-hidden="true"></i></span><h3>Contenido digital</h3><p>Redes sociales, reels y contenido multiplataforma.</p></div>
+          </article>
+          <article class="service-card reveal">
+            <img src="Otras%20Fotos/FICCION%20-%20SDB%201.png" alt="Escena de una producción de ficción de Manada" loading="lazy" />
+            <div class="service-copy"><span class="service-icon"><i class="ph ph-film-slate" aria-hidden="true"></i></span><h3>Ficción y videoclips</h3><p>Historias que inspiran, emocionan y conectan.</p></div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- NOSOTROS (EQUIPO, FILOSOFÍA, BACKSTAGE) -->
-    <section id="nosotros" class="section">
+    <section id="trabajos" class="section section-alt">
       <div class="container">
-        <div class="two-column stacked-on-mobile">
-          <div class="team-block">
-            <h2>Nosotros</h2>
-            <p class="team-label">El equipo Manada</p>
-            <div class="team-photo">
-              <!-- Reemplazar por foto real del team -->
-              <img
-                src="Otras%20Fotos/max4.jpg"
-                alt="Equipo de Manada Audiovisual"
-                loading="lazy"
-              />
-            </div>
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Trabajos destacados</p>
+            <h2>Historias que hemos hecho realidad</h2>
           </div>
+          <a href="https://youtube.com/@manadaaudiovisual" class="btn-outline btn-small" target="_blank" rel="noopener noreferrer">Ver canal completo <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </div>
 
-          <div class="filosofia-block">
-            <h3>Filosofía</h3>
-            <p>
-              Creemos en el trabajo en equipo, en la creatividad aplicada con propósito
-              y en la disciplina que convierte ideas en realidad. En Manada, cada
-              proyecto es una historia que merece ser contada con pasión y profesionalismo.
-            </p>
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <a class="video-thumb" href="https://youtu.be/Iuz6DQv1Sy8" aria-label="Reproducir reel de comerciales de Manada">
+              <img src="Fotos%20para%20la%20pagina/Comerciales%20logo.jpeg" alt="Comerciales producidos por Manada" loading="lazy" />
+              <span class="play-button"><i class="ph ph-play-fill" aria-hidden="true"></i></span>
+            </a>
+            <div class="project-info"><h3>Comerciales</h3><p>Marcas e historias</p></div>
+          </article>
+          <article class="project-card reveal">
+            <a class="video-thumb" href="https://youtu.be/gMS_XDbb-78" aria-label="Reproducir reel de documentales de Manada">
+              <img src="Fotos%20para%20la%20pagina/Documentales%20logo.jpeg" alt="Documentales producidos por Manada" loading="lazy" />
+              <span class="play-button"><i class="ph ph-play-fill" aria-hidden="true"></i></span>
+            </a>
+            <div class="project-info"><h3>Documentales</h3><p>Historias reales</p></div>
+          </article>
+          <article class="project-card reveal">
+            <a class="video-thumb" href="https://youtu.be/Iv-c90F_fQY" aria-label="Reproducir reel de ficción de Manada">
+              <img src="Fotos%20para%20la%20pagina/Ficcion%20Logo.jpeg" alt="Ficción y series producidas por Manada" loading="lazy" />
+              <span class="play-button"><i class="ph ph-play-fill" aria-hidden="true"></i></span>
+            </a>
+            <div class="project-info"><h3>Ficción</h3><p>Cine y series</p></div>
+          </article>
+          <article class="project-card reveal">
+            <a class="video-thumb" href="https://youtu.be/a7eCqMRzl7Q" aria-label="Reproducir reel de eventos de Manada">
+              <img src="Fotos%20para%20la%20pagina/Eventos%20logo.jpeg" alt="Cobertura de eventos realizada por Manada" loading="lazy" />
+              <span class="play-button"><i class="ph ph-play-fill" aria-hidden="true"></i></span>
+            </a>
+            <div class="project-info"><h3>Eventos</h3><p>Momentos que quedan</p></div>
+          </article>
+          <article class="project-card reveal">
+            <a class="video-thumb" href="https://youtu.be/Xwti7LOTwgQ" aria-label="Reproducir reel de videoclips de Manada">
+              <img src="Fotos%20para%20la%20pagina/VideoClipLogo.jpeg" alt="Videoclips producidos por Manada" loading="lazy" />
+              <span class="play-button"><i class="ph ph-play-fill" aria-hidden="true"></i></span>
+            </a>
+            <div class="project-info"><h3>Videoclips</h3><p>Música e imagen</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            <div class="backstage-block">
-              <h4>Backstage</h4>
-              <p>
-                Behind the scenes de rodajes, sets, grabaciones y momentos de equipo.
-              </p>
-              <div class="backstage-grid">
-                <!-- Reemplazar por fotos reales -->
-                <div class="backstage-item">
-                  <img src="Otras%20Fotos/DSC_4101.jpg" alt="Backstage 1" loading="lazy" />
-                </div>
-                <div class="backstage-item">
-                  <img src="Otras%20Fotos/DSC_4105.jpg" alt="Backstage 2" loading="lazy" />
-                </div>
-                <div class="backstage-item">
-                  <img src="Otras%20Fotos/DSC_4111.jpg" alt="Backstage 3" loading="lazy" />
-                </div>
-                <div class="backstage-item">
-                  <img src="Otras%20Fotos/DSC_4127.jpg" alt="Backstage 4" loading="lazy" />
-                </div>
+    <section id="talentos" class="talentos-section">
+      <div class="container talentos-layout">
+        <div class="talentos-copy">
+          <p class="talentos-eyebrow">Manada Talentos</p>
+          <h2>¿Tenés talento?<br />Esta puede ser tu oportunidad.</h2>
+          <p>Buscamos actores, modelos, bailarines y otros talentos para formar parte de comerciales, ficciones y proyectos audiovisuales.</p>
+          <ul class="talentos-benefits">
+            <li><i class="ph ph-user-focus" aria-hidden="true"></i> Castings para comerciales, series y películas.</li>
+            <li><i class="ph ph-shield-star" aria-hidden="true"></i> Trabajá con marcas, productoras y proyectos reales.</li>
+            <li><i class="ph ph-rocket-launch" aria-hidden="true"></i> Mostrá tu perfil y encontrá nuevas oportunidades.</li>
+          </ul>
+          <a class="btn-dark" href="https://manada-talentos.taffepelaez.chatgpt.site/" target="_blank" rel="noopener noreferrer">
+            <i class="ph ph-user-plus" aria-hidden="true"></i> Sumate a Manada Talentos
+          </a>
+        </div>
+
+        <div class="talentos-videos">
+          <h3>Ellos ya crearon con nosotros</h3>
+          <div class="talent-video-grid">
+            <article class="talent-video-card">
+              <div class="drive-video-slot" data-drive-video data-drive-url="">
+                <i class="ph ph-google-drive-logo" aria-hidden="true"></i>
+                <span>Video de talentos 01</span>
+                <small>Próximamente</small>
               </div>
-            </div>
-
-            <div class="cta-row">
-              <p class="cta-text">
-                ¿Querés formar parte de nuestro equipo? Sumate a la Manada.
-              </p>
-              <button class="btn-secondary" data-scroll-target="#casting">
-                Enviar mi CV
-              </button>
-            </div>
+              <h4>Historias de nuestra Manada</h4>
+            </article>
+            <article class="talent-video-card">
+              <div class="drive-video-slot" data-drive-video data-drive-url="">
+                <i class="ph ph-google-drive-logo" aria-hidden="true"></i>
+                <span>Video de talentos 02</span>
+                <small>Próximamente</small>
+              </div>
+              <h4>Conocé a nuestros talentos</h4>
+            </article>
           </div>
+          <a class="talentos-more" href="https://manada-talentos.taffepelaez.chatgpt.site/" target="_blank" rel="noopener noreferrer">
+            Explorá más talentos <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- COBERTURA DE EVENTOS -->
-    <section id="eventos" class="section section-alt">
-      <div class="container two-column">
-        <div>
-          <h2>Cobertura de eventos</h2>
-          <p>
-            Cubrimos eventos empresariales, activaciones, conciertos y experiencias
-            en general, capturando la esencia y la emoción del momento.
-          </p>
-          <h3>Servicios</h3>
-          <ul class="bullet-list">
-            <li>Producción y registro de eventos</li>
-            <li>Cobertura corporativa</li>
-            <li>Activaciones de marca</li>
-            <li>Aftermovies</li>
-            <li>Vuelos con dron</li>
-          </ul>
-
-          <div class="cta-stack">
-            <p class="cta-text">
-              👉 Inmortalizá tu evento. Sé parte de la Manada.
-            </p>
-            <a href="https://wa.me/595972500027?text=Hola!%20Vengo%20de%20la%20p%C3%A1gina%20web%20de%20Manada%20Audiovisual.%20Quisiera%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20contratar%20cobertura." target="_blank" rel="noopener noreferrer" class="btn-primary">Contratar cobertura</a>
-          </div>
+    <section id="nosotros" class="section about-section">
+      <div class="container about-layout">
+        <div class="about-copy">
+          <p class="section-kicker">¿Por qué elegir Manada?</p>
+          <h2>Creatividad, experiencia<br />y pasión por contar historias.</h2>
+          <p>Somos una productora audiovisual en Paraguay. Acompañamos cada proyecto desde la idea hasta la pantalla, con creatividad, compromiso y un equipo apasionado.</p>
         </div>
-
-        <div>
-          <h3>Evento destacado</h3>
-            <a class="video-thumb" href="https://youtu.be/a7eCqMRzl7Q" target="_blank" rel="noopener noreferrer" title="Ver Evento en YouTube">
-              <img src="Fotos%20para%20la%20pagina/Eventos%20logo.jpeg" alt="Evento - Demo reel" loading="lazy" />
-            </a>
-          </div>
+        <div class="stats-grid">
+          <div class="stat-item"><strong>Desde la idea</strong><span>Desarrollo y producción audiovisual.</span></div>
+          <div class="stat-item"><strong>De principio a fin</strong><span>Producción y postproducción.</span></div>
+          <div class="stat-item"><strong>Muchas historias</strong><span>Comerciales, documentales, ficción y más.</span></div>
+          <div class="stat-item"><strong>Una Manada</strong><span>Un equipo unido por cada proyecto.</span></div>
         </div>
       </div>
     </section>
 
-    <!-- POSTPRODUCCIÓN -->
-    <section id="postproduccion" class="section">
-      <div class="container two-column">
-        <div>
-          <h2>Postproducción</h2>
-          <p>
-            Le damos vida, ritmo y estética a tu contenido. La post es donde todo toma forma.
-          </p>
-          <h3>Servicios</h3>
-          <ul class="bullet-list">
-            <li>Edición profesional</li>
-            <li>Color grading</li>
-            <li>Diseño sonoro</li>
-            <li>Motion graphics</li>
-            <li>Corrección de color</li>
-            <li>Montaje para TV y plataformas</li>
-          </ul>
-
-          <div class="cta-stack">
-            <p class="cta-text">
-              Tu proyecto merece el mejor acabado. Sé parte de la Manada.
-            </p>
-            <a href="https://wa.me/595972500027?text=Hola!%20Vengo%20de%20la%20p%C3%A1gina%20web%20de%20Manada%20Audiovisual.%20Quisiera%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20postproducir%20con%20Manada." target="_blank" rel="noopener noreferrer" class="btn-primary">Postproducir con Manada</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CASTING ONLINE -->
-    <section id="casting" class="section section-alt">
+    <section id="aliados" class="partners-section">
       <div class="container">
-        <h2>Casting online</h2>
-        <p>
-          Creamos una base de datos de talentos para comerciales, ficciones,
-          contenido digital y proyectos audiovisuales.
-        </p>
-
-        <div class="casting-contact">
-          <p>
-            Para postularte al casting, envíanos un correo a <strong>manadagroup.py@gmail.com</strong> con la siguiente información. Vamos a responder por esa vía y te contactaremos si tu perfil encaja en alguna búsqueda.
-          </p>
-
-          <p><strong>Por favor incluí en el correo:</strong></p>
-          <ul>
-            <li>Nombre y Apellido</li>
-            <li>Apodo (si tenés)</li>
-            <li>Edad y fecha de nacimiento</li>
-            <li>Ciudad</li>
-            <li>Profesión / rol (Actor, Modelo, Bailarín, etc.)</li>
-            <li>Explicación breve (1-2 líneas sobre por qué querés participar)</li>
-            <li>Experiencia previa (si tenés)</li>
-            <li>Link a carpeta con material (Drive, Vimeo, YouTube u otro)</li>
-            <li>Adjuntos (fotos, CV, reel) en formato común</li>
-          </ul>
-
-          <p>
-            Usá este botón para abrir tu cliente de correo con una plantilla prellenada; completá los campos y adjuntá tus archivos antes de enviar.
-          </p>
-
-          <a class="btn-primary" href="mailto:manadagroup.py@gmail.com?subject=Postulaci%C3%B3n%20Casting%20-%20Manada&body=Hola%20Manada%2C%0A%0AMe%20postulo%20al%20casting.%20Adjunto%20mi%20informaci%C3%B3n%3A%0A%0ANombre%20y%20apellido%3A%0AApodo%3A%0AEdad%20y%20fecha%20de%20nacimiento%3A%0ACiudad%3A%0AProfesión%20%2F%20rol%3A%0AExplicaci%C3%B3n%20breve%3A%0AExperiencia%20previa%3A%0ALink%20a%20carpeta%20(Drive%2C%20YouTube%2C%20Vimeo)%3A%0A%0ASaludos%2C%0A" title="Enviar email a manadagroup.py@gmail.com">Enviar email para postularme</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ALIADOS -->
-    <section id="aliados" class="section">
-      <div class="container">
-        <h2>Aliados</h2>
-        <p>
-          Juntos somos más fuertes. En Manada creemos en el poder de las alianzas,
-          las co-producciones y el trabajo colaborativo.
-        </p>
-
-        <div class="aliados-grid">
-            <a href="https://www.instagram.com/sarambi.studio/" class="aliado-card" target="_blank" rel="noopener noreferrer" aria-label="Sarambi Studio">
-              <img src="Aliados%20%20Manada/sarambi[1].png" alt="Logotipo Sarambi Studio — aliado de Manada Audiovisual" class="aliado-img" loading="lazy" />
-            </a>
-
-            <a href="https://www.instagram.com/main_project_py" class="aliado-card" target="_blank" rel="noopener noreferrer" aria-label="Main Project">
-              <img src="Aliados%20%20Manada/Logotipo%20Main%20Project.png" alt="Logotipo Main Project — aliado de Manada Audiovisual" class="aliado-img" loading="lazy" />
-            </a>
-
-            <a href="https://www.instagram.com/yaguaretefilms?igsh=MWwyaHF5c3VzOHg3Ng==" class="aliado-card" target="_blank" rel="noopener noreferrer" aria-label="Yaguareté Films">
-              <img src="Aliados%20%20Manada/Yaguarete.png" alt="Logotipo Yaguareté Films — aliado de Manada Audiovisual" class="aliado-img" loading="lazy" />
-            </a>
-        </div>
-        
-        <div class="cta-row">
-          <p class="cta-text">
-            ¿Querés ser parte? Únete a la Manada.
-          </p>
-          <button class="btn-secondary" data-scroll-target="#redes">
-            Quiero ser aliado
-          </button>
-        </div>
-      </div>
-    </section>
-
-    
-    <!-- CTA + REDES SOCIALES -->
-    <section id="redes" class="section section-cta">
-      <div class="container cta-grid">
-        <div>
-          <h2>Únete a la Manada</h2>
-          <p>
-            ¿Querés que tu marca, evento o proyecto tenga contenido audiovisual
-            a la altura? Hablemos y empecemos a producir.
-          </p>
-          <p class="cta-note">
-            Podés escribirnos por cualquiera de nuestras redes sociales.
-          </p>
-        </div>
-
-        <div class="social-block">
-          <h3>Visitá nuestras redes sociales</h3>
-          <div class="social-icons">
-            <a
-              href="https://youtube.com/@manadaaudiovisual"
-              class="social-icon social-youtube"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube Manada Audiovisual"
-            >
-              <svg class="icon" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                <path fill="currentColor" d="M23.5 6.2a2.8 2.8 0 0 0-1.96-2C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.54.7A2.8 2.8 0 0 0 .5 6.2 29.4 29.4 0 0 0 0 12a29.4 29.4 0 0 0 .5 5.8 2.8 2.8 0 0 0 1.96 2c1.94.7 9.54.7 9.54.7s7.6 0 9.54-.7a2.8 2.8 0 0 0 1.96-2A29.4 29.4 0 0 0 24 12a29.4 29.4 0 0 0-.5-5.8zM9.8 15.1V8.9l6.3 3.1-6.3 3.1z"/>
-              </svg>
-            </a>
-
-            <a
-              href="https://www.instagram.com/manadapy"
-              class="social-icon social-instagram"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram ManadaPy"
-            >
-              <svg class="icon" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                <path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.2A4.8 4.8 0 1 0 16.8 13 4.8 4.8 0 0 0 12 8.2zm6.4-2.8a1.1 1.1 0 1 0 1.1 1.1 1.1 1.1 0 0 0-1.1-1.1zM12 10.6A1.4 1.4 0 1 1 10.6 12 1.4 1.4 0 0 1 12 10.6z"/>
-              </svg>
-            </a>
-
-            <a
-              href="https://www.facebook.com/share/17hV52GTpF/?mibextid=wwXIfr"
-              class="social-icon social-facebook"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook Manada Audiovisual"
-            >
-              <svg class="icon" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                <path fill="currentColor" d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.2V12h2.2V9.8c0-2.2 1.3-3.4 3.3-3.4.96 0 1.96.17 1.96.17v2.1h-1.08c-1.06 0-1.39.66-1.39 1.34V12h2.36l-.38 2.9h-1.98v7A10 10 0 0 0 22 12z"/>
-              </svg>
-            </a>
-            
-            <a
-              href="mailto:manadagroup.py@gmail.com"
-              class="social-icon social-mail"
-              aria-label="Email Manada"
-              title="Escribinos: manadagroup.py@gmail.com"
-            >
-              <svg class="icon" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-              </svg>
-            </a>
-
-            <a
-              href="https://wa.me/595972500027"
-              class="social-icon social-whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp Manada"
-              title="WhatsApp: +595 0972500027"
-            >
-              <svg class="icon" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                <path fill="currentColor" d="M17.6 6.32c-1.7-1.7-4.03-2.64-6.48-2.64-5.04 0-9.14 4.1-9.14 9.14 0 1.61.42 3.16 1.21 4.55L2 22l4.82-1.26c1.33.78 2.85 1.19 4.44 1.19h.01c5.04 0 9.14-4.1 9.14-9.14 0-2.44-.94-4.75-2.65-6.48zm-6.48 13.78c-1.39 0-2.74-.36-3.93-1.05l-.28-.17-2.9.76.77-2.87-.18-.28c-.74-1.21-1.13-2.59-1.13-3.98 0-4.2 3.42-7.62 7.62-7.62 2.03 0 3.94.79 5.38 2.23 1.44 1.44 2.23 3.35 2.23 5.39 0 4.2-3.42 7.62-7.62 7.62zm4.17-5.74c-.23-.11-1.35-.67-1.56-.75-.21-.08-.36-.11-.51.11-.15.23-.59.75-.73.91-.13.15-.27.17-.5.06-.23-.11-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.66-.13-.23-.01-.35.1-.47.1-.1.23-.27.35-.4.11-.13.15-.23.23-.38.08-.15.04-.28-.02-.4-.06-.11-.51-1.23-.7-1.69-.18-.41-.37-.36-.51-.36-.13 0-.28-.01-.43-.01-.15 0-.39.06-.59.28-.20.23-.76.74-.76 1.81s.78 2.1.88 2.24c.10.15 1.4 2.14 3.4 3 .47.2.84.32 1.13.41.47.15.9.13 1.24.08.38-.06 1.17-.48 1.33-.94.16-.46.16-.85.11-.94-.05-.08-.2-.13-.42-.23z"/>
-              </svg>
-            </a>
-
-            <a
-              href="https://www.tiktok.com/@manadapy"
-              class="social-icon social-tiktok"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="TikTok ManadaPy"
-              title="TikTok: @manadapy"
-            >
-              <svg class="icon" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                <path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v12.7a2.85 2.85 0 1 1-5.18-2.3 2.8 2.8 0 0 1 2.97 2.82v3.02a5.78 5.78 0 0 1-5.3-5.74 5.88 5.88 0 0 1 6.05-5.83 5.87 5.87 0 0 1 5.91 5.38z"/>
-              </svg>
-            </a>
-          </div>
+        <h2 class="section-kicker">Clientes y aliados</h2>
+        <div class="partners-grid" aria-label="Aliados de Manada">
+          <a class="partner-card" href="https://www.instagram.com/main_project_py" target="_blank" rel="noopener noreferrer" aria-label="Main Project">
+            <img src="Aliados%20%20Manada/Logotipo%20Main%20Project.png" alt="Main Project" loading="lazy" />
+          </a>
+          <a class="partner-card" href="https://www.instagram.com/yaguaretefilms" target="_blank" rel="noopener noreferrer" aria-label="Yaguareté Films">
+            <img src="Aliados%20%20Manada/Yaguarete.png" alt="Yaguareté Films" loading="lazy" />
+          </a>
+          <a class="partner-card" href="https://www.instagram.com/sarambi.studio/" target="_blank" rel="noopener noreferrer" aria-label="Sarambi Studio">
+            <img src="Aliados%20%20Manada/sarambi%5B1%5D.png" alt="Sarambi Studio" loading="lazy" />
+          </a>
+          <a class="partner-card partner-wordmark" href="https://www.instagram.com/deitex_ph/" target="_blank" rel="noopener noreferrer" aria-label="Deitex en Instagram">DEITEX</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="main-footer">
-    <div class="container footer-content">
-      <p>© <span id="year"></span> Manada Audiovisual. Todos los derechos reservados.</p>
-      <p class="footer-tagline">Creamos historias que conectan.</p>
+  <footer id="contacto" class="main-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#inicio" aria-label="Manada Audiovisual, inicio">
+          <img src="Fotos%20para%20la%20pagina/manada-logo-mark.png" alt="" class="brand-mark" loading="lazy" />
+          <span class="brand-type"><strong>Manada</strong><small>Audiovisual</small></span>
+        </a>
+        <p>Somos una productora audiovisual en Paraguay. Creamos historias que conectan marcas, personas y emociones.</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/manadapy" target="_blank" rel="noopener noreferrer" aria-label="Instagram ManadaPy"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/share/17hV52GTpF/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook Manada Audiovisual"><i class="ph ph-facebook-logo" aria-hidden="true"></i></a>
+          <a href="https://youtube.com/@manadaaudiovisual" target="_blank" rel="noopener noreferrer" aria-label="YouTube Manada Audiovisual"><i class="ph ph-youtube-logo" aria-hidden="true"></i></a>
+          <a href="https://www.tiktok.com/@manadapy" target="_blank" rel="noopener noreferrer" aria-label="TikTok ManadaPy"><i class="ph ph-tiktok-logo" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3>Navegación</h3>
+        <a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#talentos">Manada Talentos</a><a href="#nosotros">Nosotros</a><a href="#aliados">Aliados</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contacto</h3>
+        <a href="tel:+595972500027"><i class="ph ph-phone" aria-hidden="true"></i> +595 972 500 027</a>
+        <a href="mailto:manadagroup.py@gmail.com"><i class="ph ph-envelope-simple" aria-hidden="true"></i> manadagroup.py@gmail.com</a>
+        <a href="https://manada.com.py"><i class="ph ph-globe" aria-hidden="true"></i> manada.com.py</a>
+        <span><i class="ph ph-map-pin" aria-hidden="true"></i> Paraguay</span>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> Manada Audiovisual. Todos los derechos reservados.</span>
+      <span>Paraguay</span>
     </div>
   </footer>
 
-
-  <script>
-    // Actualiza el año en el footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
-  <!-- Script: comprimir/expandir secciones (móvil y PC) -->
-  <script>
-  (function(){
-    const mq = window.matchMedia('(min-width:0px)');
-    let active = false;
-
-    function toggleSectionCollapse(sec, heading, btn){
-      const isCollapsed = sec.classList.toggle('collapsed');
-      btn.setAttribute('aria-expanded', String(!isCollapsed));
-      btn.textContent = isCollapsed ? 'Mostrar' : 'Comprimir';
-
-      if(isCollapsed){
-        const secRect = sec.getBoundingClientRect();
-        const headRect = heading.getBoundingClientRect();
-        const visible = Math.max( (headRect.bottom - secRect.top) + 8, 40 );
-        sec.style.maxHeight = visible + 'px';
-        sec.style.overflow = 'hidden';
-        heading.scrollIntoView({behavior:'smooth', block:'nearest'});
-      } else {
-        sec.style.maxHeight = '';
-        sec.style.overflow = '';
-        setTimeout(()=> heading.scrollIntoView({behavior:'smooth', block:'start'}), 120);
-      }
-    }
-
-    function updateCollapseAllButton(){
-      const collapseAllBtn = document.querySelector('.collapse-all-btn');
-      if(!collapseAllBtn) return;
-      const sections = document.querySelectorAll('main section[data-collapse-init]');
-      const allCollapsed = sections.length > 0 && Array.from(sections).every(sec => sec.classList.contains('collapsed'));
-      if(allCollapsed){
-        collapseAllBtn.classList.add('all-collapsed');
-        collapseAllBtn.querySelector('.collapse-all-text').textContent = 'Expandir todo';
-      } else {
-        collapseAllBtn.classList.remove('all-collapsed');
-        collapseAllBtn.querySelector('.collapse-all-text').textContent = 'Comprimir todo';
-      }
-    }
-
-    function setupCollapseAllButton(){
-      const collapseAllBtn = document.querySelector('.collapse-all-btn');
-      if(!collapseAllBtn || collapseAllBtn.dataset.initialized) return;
-      collapseAllBtn.addEventListener('click', ()=>{
-        const sections = document.querySelectorAll('main section[data-collapse-init]');
-        const allCollapsed = Array.from(sections).every(sec => sec.classList.contains('collapsed'));
-        sections.forEach(sec=>{
-          const heading = sec.querySelector('h1,h2,h3,h4');
-          const btn = sec.querySelector('.collapse-btn');
-          if(!heading || !btn) return;
-          const shouldCollapse = !allCollapsed;
-          if(shouldCollapse && !sec.classList.contains('collapsed')){
-            toggleSectionCollapse(sec, heading, btn);
-          } else if(!shouldCollapse && sec.classList.contains('collapsed')){
-            toggleSectionCollapse(sec, heading, btn);
-          }
-        });
-        updateCollapseAllButton();
-      });
-      collapseAllBtn.dataset.initialized = '1';
-    }
-
-    function setup(){
-      document.querySelectorAll('main section').forEach(sec=>{
-        if(sec.dataset.collapseInit) return;
-        const heading = sec.querySelector('h1,h2,h3,h4');
-        if(!heading) return;
-
-        const btn = document.createElement('button');
-        btn.className = 'collapse-btn';
-        btn.type = 'button';
-        btn.setAttribute('aria-expanded','true');
-        btn.title = 'Comprimir/Expandir sección';
-        btn.textContent = 'Comprimir';
-
-        btn.addEventListener('click', ()=>{
-          toggleSectionCollapse(sec, heading, btn);
-          updateCollapseAllButton();
-        });
-
-        sec.appendChild(btn);
-        sec.dataset.collapseInit = '1';
-      });
-      updateCollapseAllButton();
-    }
-
-    function teardown(){
-      document.querySelectorAll('main section').forEach(sec=>{
-        if(!sec.dataset.collapseInit) return;
-        sec.classList.remove('collapsed');
-        sec.style.maxHeight = '';
-        sec.style.overflow = '';
-        const btn = sec.querySelector('.collapse-btn');
-        if(btn) btn.remove();
-        delete sec.dataset.collapseInit;
-      });
-      updateCollapseAllButton();
-    }
-
-    function handleChange(e){
-      if(e.matches) { setup(); setupCollapseAllButton(); active = true; }
-      else if(active) { teardown(); active = false; }
-    }
-
-    if(mq.addEventListener) mq.addEventListener('change', handleChange);
-    else if(mq.addListener) mq.addListener(handleChange);
-
-    if(mq.matches) { setup(); setupCollapseAllButton(); }
-  })();
-  </script>
-
-  <!-- JSON-LD básico para SEO -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="site.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Manada Audiovisual",
     "url": "https://manada.com.py/",
-    "logo": "https://manada.com.py/Fotos%20para%20la%20pagina/SOLAMENTE%20LOGO.png",
-    "description": "Producción audiovisual: documentales, comerciales, eventos y postproducción en Paraguay",
+    "logo": "https://manada.com.py/Fotos%20para%20la%20pagina/manada-logo-mark.png",
+    "image": "https://manada.com.py/Fotos%20para%20la%20pagina/manada-logo-mark.png",
+    "description": "Productora audiovisual en Paraguay: comerciales, documentales, ficción, videoclips y eventos.",
     "sameAs": [
       "https://www.instagram.com/manadapy",
       "https://youtube.com/@manadaaudiovisual",
@@ -855,7 +299,7 @@ Así es trabajar con nosotros.
       "@type": "ContactPoint",
       "contactType": "Customer Service",
       "email": "manadagroup.py@gmail.com",
-      "telephone": "+595 0972500027"
+      "telephone": "+595972500027"
     },
     "address": {
       "@type": "PostalAddress",
@@ -863,53 +307,5 @@ Así es trabajar con nosotros.
     }
   }
   </script>
-
-  <!-- JSON-LD: Organización + LocalBusiness -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Manada Audiovisual",
-    "url": "https://manada.com.py/",
-    "logo": "https://manada.com.py/Fotos%20para%20la%20pagina/SOLAMENTE%20LOGO.png",
-    "image": "https://manada.com.py/Fotos%20para%20la%20pagina/SOLAMENTE%20LOGO.png",
-    "description": "Producción audiovisual profesional: documentales, comerciales, eventos y postproducción en Paraguay",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "PY",
-      "addressLocality": "Paraguay"
-    },
-    "areaServed": ["PY", "AR", "BR", "UY"],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Customer Service",
-      "email": "manadagroup.py@gmail.com",
-      "telephone": "+595-972-500027"
-    },
-    "sameAs": [
-      "https://www.instagram.com/manadapy",
-      "https://youtube.com/@manadaaudiovisual",
-      "https://www.facebook.com/share/17hV52GTpF/?mibextid=wwXIfr",
-      "https://www.tiktok.com/@manadapy"
-    ],
-    "priceRange": "$$$"
-  }
-  </script>
-
-  <!-- JSON-LD: Videos -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "Manada Audiovisual - Así es trabajar con nosotros",
-    "description": "Video oficial de Manada Audiovisual - Producción audiovisual profesional",
-    "thumbnailUrl": "https://manada.com.py/Otras%20Fotos/solos%202%20afiche%20oficial.jpg",
-    "uploadDate": "2025-12-22",
-    "duration": "PT5M",
-    "url": "https://youtu.be/tMDzT0zSssM"
-  }
-  </script>
-
-  <script src="script.js"></script>
 </body>
 </html>
