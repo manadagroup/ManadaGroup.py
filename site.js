@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  const getYouTubeEmbedUrl = (value) => {
+  const getYouTubeEmbedUrl = (value, autoplay = true) => {
     let url;
     try {
       url = new URL(value);
@@ -81,7 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (!/^[A-Za-z0-9_-]{6,}$/.test(videoId)) return null;
-    return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1`;
+    const autoplayParam = autoplay ? "?autoplay=1" : "";
+    return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}${autoplayParam}`;
   };
 
   document.querySelectorAll(".video-thumb").forEach((link) => {
@@ -122,21 +123,17 @@ document.addEventListener("DOMContentLoaded", () => {
     return `https://drive.google.com/file/d/${encodeURIComponent(fileId)}/preview`;
   };
 
-  document.querySelectorAll("[data-drive-video]").forEach((slot) => {
-    const shareUrl = slot.getAttribute("data-drive-url")?.trim();
-    if (!shareUrl) return;
-
+  const renderTalentVideo = (slot, embedUrl, provider) => {
     const title = slot.querySelector("span")?.textContent || "Video de Manada Talentos";
-    const embedUrl = getDriveEmbedUrl(shareUrl);
     if (!embedUrl) {
       slot.classList.add("drive-error");
       slot.replaceChildren();
       const error = document.createElement("span");
       error.className = "drive-error-message";
       error.setAttribute("role", "status");
-      error.textContent = "No se pudo cargar el video. Verificá el enlace de Google Drive.";
+      error.textContent = `No se pudo cargar el video. Verificá el enlace de ${provider}.`;
       slot.appendChild(error);
-      console.error("Enlace de video de Google Drive no válido:", shareUrl);
+      console.error(`Enlace de video de ${provider} no válido.`);
       return;
     }
 
@@ -150,5 +147,17 @@ document.addEventListener("DOMContentLoaded", () => {
     iframe.referrerPolicy = "strict-origin-when-cross-origin";
     iframe.loading = "lazy";
     slot.appendChild(iframe);
+  };
+
+  document.querySelectorAll("[data-drive-video]").forEach((slot) => {
+    const shareUrl = slot.getAttribute("data-drive-url")?.trim();
+    if (!shareUrl) return;
+    renderTalentVideo(slot, getDriveEmbedUrl(shareUrl), "Google Drive");
+  });
+
+  document.querySelectorAll("[data-youtube-video]").forEach((slot) => {
+    const shareUrl = slot.getAttribute("data-youtube-url")?.trim();
+    if (!shareUrl) return;
+    renderTalentVideo(slot, getYouTubeEmbedUrl(shareUrl, false), "YouTube");
   });
 });
